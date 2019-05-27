@@ -56,6 +56,7 @@ services:
       - 9092:9092
     volumes: 
       - ./conf/kapacitor/kapacitor.conf:/etc/kapacitor/kapacitor.conf
+      - ./volumes/kapacitor/:/var/lib/kapacitor/
     networks:
       - tick-net
 
