@@ -22,10 +22,10 @@ password: password
 ### Generate new credentials:
 
 ```bash
-sudo htpasswd -c conf/htpasswd admin
+sudo htpasswd -c conf/htpasswd/chronograf.krsna.co.za admin
 ```
 
 ### Add an additional user
 ```bash
-sudo htpasswd conf/htpasswd another_user
+sudo htpasswd conf/htpasswd/chronograf.krsna.co.za another_user
 ```

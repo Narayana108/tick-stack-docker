@@ -12,6 +12,8 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./conf/htpasswd:/etc/nginx/htpasswd
+    networks:
+      - tick-net
 
   influxdb:
     image: influxdb:latest
