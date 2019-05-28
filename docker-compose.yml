@@ -2,41 +2,39 @@
 version: "3.3"
 services:
 
-  telegraf:
-    image: telegraf:latest
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    hostname: nginx-proxy
+    container_name: tick-nginx-proxy
     restart: always
-    hostname: telegraf
-    volumes: 
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./conf/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
-      - /sys:/rootfs/sys:ro
-      - /proc:/rootfs/proc:ro
-      - /etc:/rootfs/etc:ro
-    environment:
-      - HOST_PROC=/rootfs/proc
-      - HOST_SYS=/rootfs/sys
-      - HOST_ETC=/rootfs/etc
-    networks:
-      - tick-net
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./conf/htpasswd:/etc/nginx/htpasswd
 
   influxdb:
     image: influxdb:latest
     hostname: influxdb
+    container_name: tick-influxdb
     restart: always
     ports:
       - 8086:8086
     volumes:
       - ./volumes/influxdb/:/var/lib/influxdb
     environment:
-      - INFLUXDB_DB=telegraf
-      - INFLUXDB_ADMIN_USER=admin
-      - INFLUXDB_ADMIN_PASSWORD=password
+      INFLUXDB_DB: telegraf
+      INFLUXDB_ADMIN_USER: admin
+      INFLUXDB_ADMIN_PASSWORD: password
+      VIRTUAL_HOST: influxdb.krsna.co.za
+      VIRTUAL_PORT: 8086
     networks:
       - tick-net
 
   chronograf:
     image: chronograf:latest
-    hostname: chronograf
+    hostname: chronograf.krsna.co.za
+    container_name: tick-chronograf
     restart: always
     ports:
       - 8888:8888
@@ -47,16 +45,22 @@ services:
     environment:
       INFLUXDB_URL: http://influxdb:8086
       KAPACITOR_URL: http://kapacitor:9092
+      VIRTUAL_HOST: chronograf.krsna.co.za
+      VIRTUAL_PORT: 8888
 
   kapacitor:
     image: kapacitor:latest
     hostname: kapacitor
+    container_name: tick-kapacitor
     restart: always
     ports:
       - 9092:9092
     volumes: 
-      - ./conf/kapacitor/kapacitor.conf:/etc/kapacitor/kapacitor.conf
+      - ./conf/kapacitor.conf:/etc/kapacitor/kapacitor.conf
       - ./volumes/kapacitor/:/var/lib/kapacitor/
+    environment:
+      VIRTUAL_HOST: "kapacitor.krsna.co.za"
+      VIRTUAL_PORT: 9092
     networks:
       - tick-net
 
