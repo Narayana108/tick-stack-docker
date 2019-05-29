@@ -3,7 +3,7 @@
 
 ## Nginx, Telegraf, InfluxDB, Chronograf, Kapacitor
 
-#Configuration
+# Configuration
 
 #### Generate an up-to-date sample telegraf config
 ```bash
@@ -40,11 +40,16 @@ docker-compose up -f telegraf.yml
 sudo htpasswd volumes/config/htpasswd/chronograf.krsna.co.za another_user
 ```
 
-### SSH into default docker container
+### Create temporary container and SSH into container
 ```bash
 bash scripts/ssh-or-conf_gen.sh kapacitor 
 bash scripts/ssh-or-conf_gen.sh influxdb
 ```
+
+## TODO
+- SSL
+- Make includes htpasswd
+- List dependencies
 
 ----
 
