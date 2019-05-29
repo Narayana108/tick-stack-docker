@@ -16,12 +16,12 @@ docker-compose up -f telegraf.yml
 ### Generate new credentials:
 
 ```bash
-sudo htpasswd -c conf/htpasswd/chronograf.krsna.co.za admin
+sudo htpasswd -c volumes/config/htpasswd/chronograf.krsna.co.za admin
 ```
 
 ### Add an additional user
 ```bash
-sudo htpasswd conf/htpasswd/chronograf.krsna.co.za another_user
+sudo htpasswd volumes/config/htpasswd/chronograf.krsna.co.za another_user
 ```
 
 ----

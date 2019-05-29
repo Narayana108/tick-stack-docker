@@ -1,14 +1,15 @@
+---
 version: "3.3"
 services:
 
   telegraf:
-    image: telegraf:latest
+    image: telegraf:${TELEGRAF_VERSION}
     restart: always
     hostname: telegraf
-    container_name: tick-telegraf
+    container_name: ${CONTAINER_NAMESPACE}telegraf
     volumes: 
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./conf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - ./volumes/config/telegraf.conf:/etc/telegraf/telegraf.conf:ro
       - /sys:/rootfs/sys:ro
       - /proc:/rootfs/proc:ro
       - /etc:/rootfs/etc:ro
@@ -17,8 +18,7 @@ services:
       - HOST_SYS=/rootfs/sys
       - HOST_ETC=/rootfs/etc
     networks:
-      - tick-net
+      - tick_net
 
 networks:
-  tick-net:
-    driver: bridge
+  tick_net:
