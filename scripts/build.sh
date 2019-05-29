@@ -1,7 +1,7 @@
 set -a
 source .env
 
-mkdir -p ./volumes/config
+mkdir -p ./volumes/config/htpasswd
 >&2 echo "Building \"telegraf.conf\" via envsubst"
 envsubst < templates/telegraf.conf > "volumes/config/telegraf.conf"
 >&2 echo "Building \"kapacitor.conf\" via envsubst"

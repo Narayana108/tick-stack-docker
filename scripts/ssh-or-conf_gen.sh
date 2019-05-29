@@ -1,3 +1,5 @@
+### SSH into a container
+### Or Generate a config file
 source .env
 
 CMD=${2:-"/bin/sh"}
