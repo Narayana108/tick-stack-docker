@@ -1,7 +1,7 @@
 # Docker Compose for TICK stack 
 # With Nginx proxy and authentication for Chronograf
 
-## Nginx, Telegraf, InfluxDB, Chronograf, Kapacitor
+Docker containers: `Nginx, Telegraf, InfluxDB, Chronograf, Kapacitor`
 
 # Dependencies
 Requires `htpasswd` to add authentication to chronograf
