@@ -8,7 +8,7 @@ Requires `htpasswd` to add authentication to chronograf
 
 Arch:
 ```bash
-yay -S  apache-tools
+yay -S apache-tools
 ```
 
 Debian:
@@ -39,7 +39,6 @@ bash scripts/ssh-or-conf_gen.sh kapacitor "kapacitord config" > /tmp/kapacitord.
 git clone https://gitlab.com/qrsna/tick-stack-docker.git && cd tick-stack-docker
 cp .env.default .env && vim .env # edit your variables
 make
-sudo htpasswd -c volumes/config/htpasswd/chronograf.krsna.co.za admin
 docker-compose up 
 ```
 
@@ -57,6 +56,8 @@ sudo htpasswd volumes/config/htpasswd/chronograf.krsna.co.za another_user
 ```bash
 bash scripts/ssh-or-conf_gen.sh kapacitor 
 bash scripts/ssh-or-conf_gen.sh influxdb
+bash scripts/ssh-or-conf_gen.sh chronograf
+bash scripts/ssh-or-conf_gen.sh telegraf
 ```
 
 ### Destroy environment
