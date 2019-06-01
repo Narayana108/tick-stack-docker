@@ -39,7 +39,7 @@ services:
 
   chronograf: 
     image: chronograf:${CHRONOGRAF_VERSION} 
-    hostname: chronograf.krsna.co.za
+    hostname: chronograf
     container_name: chronograf
     restart: always
     ports:
