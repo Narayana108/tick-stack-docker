@@ -13,10 +13,13 @@ services:
       - /sys:/rootfs/sys:ro
       - /proc:/rootfs/proc:ro
       - /etc:/rootfs/etc:ro
+      - /var/run/utmp:/var/run/utmp:ro
+      - /:/rootfs:ro
     environment:
       - HOST_PROC=/rootfs/proc
       - HOST_SYS=/rootfs/sys
       - HOST_ETC=/rootfs/etc
+      - HOST_MOUNT_PREFIX=/rootfs
     networks:
       - tick_net
 

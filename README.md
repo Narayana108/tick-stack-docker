@@ -3,6 +3,19 @@
 
 ## Nginx, Telegraf, InfluxDB, Chronograf, Kapacitor
 
+# Dependencies
+Requires `htpasswd` to add authentication to chronograf
+
+Arch:
+```bash
+yay -S  apache-tools
+```
+
+Debian:
+```bash
+sudo apt-get install apache2-utils
+```
+
 # Configuration
 
 #### Generate an up-to-date sample telegraf config
@@ -46,13 +59,19 @@ bash scripts/ssh-or-conf_gen.sh kapacitor
 bash scripts/ssh-or-conf_gen.sh influxdb
 ```
 
+### Destroy environment
+Delete configs and docker volumes
+```bash
+make destroy
+```
+
 ## TODO
-- SSL
-- Make includes htpasswd
-- List dependencies
+- Add SSL
+
+  `https://tevinjeffrey.me/how-to-setup-nginx-proxy-and-lets-encrypt-with-docker/`
+
+  `https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion`
 
 ----
-
 Most High Bless ॐ 
-
 हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे हरे राम हरे राम राम राम हरे हरे

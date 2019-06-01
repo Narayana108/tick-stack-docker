@@ -10,3 +10,6 @@ pull:
 
 build:
 	@bash scripts/build.sh
+
+destroy:
+	@bash scripts/destroy.sh
