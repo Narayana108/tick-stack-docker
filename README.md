@@ -4,16 +4,17 @@
 Docker containers: `Nginx, Telegraf, InfluxDB, Chronograf, Kapacitor`
 
 # Dependencies
-Requires `htpasswd` to add authentication to chronograf
+Requires `htpasswd` to add authentication to chronograf and `make`
 
 Arch:
 ```bash
-yay -S apache-tools
+yay -S apache-tools 
+sudo pacman -S make
 ```
 
 Debian:
 ```bash
-sudo apt-get install apache2-utils
+sudo apt-get install apache2-utils make
 ```
 
 # Configuration
