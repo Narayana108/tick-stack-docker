@@ -11,7 +11,7 @@ envsubst < templates/kapacitor.conf > "volumes/config/kapacitor.conf"
 
 echo "Adding authentication for \"chronograf\" via httpasswd"
 read -p "Enter username: " -r
-sudo htpasswd -c volumes/config/htpasswd/chronograf.krsna.co.za $REPLY
+sudo htpasswd -c volumes/config/htpasswd/${CHRONOGRAF_HOST} $REPLY
 
 #ENV_VARS=""
 #if [[ -v INFLUXDB_DB ]]; then ENV_VARS="${ENV_VARS} -e INFLUXDB_DB=${INFLUXDB_DB}"; fi
