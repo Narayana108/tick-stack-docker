@@ -1,3 +1,4 @@
+#!/bin/bash
 ### SSH into a container
 ### Or Generate a config file
 source .env
@@ -22,5 +23,5 @@ case "$1" in
     ;;
 esac
 
->&2 echo "$ docker run --rm --net=host -it ${DOCKER_IMAGE} ${CMD}"
+echo "$ docker run --rm --net=host -it ${DOCKER_IMAGE} ${CMD}"
 docker run --rm --net=host -it ${DOCKER_IMAGE} ${CMD}

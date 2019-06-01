@@ -2,7 +2,7 @@
 set -a
 source .env
 
->&2 echo "Pulling latest images from Docker registry"
+echo "Pulling latest images from Docker registry"
 docker pull telegraf:${TELEGRAF_VERSION}
 docker pull influxdb:${INFLUXDB_VERSION}
 docker pull chronograf:${CHRONOGRAF_VERSION}
