@@ -2,7 +2,7 @@
 
 # Cleaning up dirs
 echo "Cleaning volumes dir for fresh installation"
-read -p "All volumes will be deleted including influxdb Database, Are u sure u want proceed? " -n 1 -r
+read -p "All volumes will be deleted including influxdb Database, Are u sure u want proceed (y/n)? " -n 1 -r
 echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then

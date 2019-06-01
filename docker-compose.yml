@@ -40,7 +40,7 @@ services:
   chronograf: 
     image: chronograf:${CHRONOGRAF_VERSION} 
     hostname: chronograf.krsna.co.za
-    container_name: tick-chronograf
+    container_name: chronograf
     restart: always
     ports:
       - 8888
