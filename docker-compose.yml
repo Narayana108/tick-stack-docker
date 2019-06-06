@@ -10,10 +10,8 @@ services:
     ports:
       - 80:80
     volumes:
-      - /etc/nginx/vhost.d
-      - /usr/share/nginx/html
-      - /etc/nginx/certs:/etc/nginx/certs:ro'
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./volumes/config/htpasswd:/etc/nginx/htpasswd:rw
     networks:
       - tick_net
 
