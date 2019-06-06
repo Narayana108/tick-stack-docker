@@ -17,13 +17,6 @@ services:
     networks:
       - tick_net
 
-  letsencrypt-nginx-proxy:
-    container_name: letsencrypt-nginx-proxy
-    image: jrcs/letsencrypt-nginx-proxy-companion
-    volumes:
-      - /etc/nginx/certs:/etc/nginx/certs
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-
   influxdb:
     image: influxdb:${INFLUXDB_VERSION}
     hostname: influxdb
